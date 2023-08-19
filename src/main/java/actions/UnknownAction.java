@@ -12,7 +12,7 @@ import constants.ForwardConst;
 
 public class UnknownAction extends ActionBase {
 
-    /*
+    /**
      * 共通エラー画面「お探しのページは見つかりませんでした。」を表示する
      */
     @Override

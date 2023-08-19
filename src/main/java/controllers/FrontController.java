@@ -13,7 +13,7 @@ import actions.ActionBase;
 import actions.UnknownAction;
 import constants.ForwardConst;
 
-/*
+/**
  * フロントコントローラ
  */
 
@@ -25,6 +25,9 @@ public class FrontController extends HttpServlet {
         super();
     }
 
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -38,19 +41,21 @@ public class FrontController extends HttpServlet {
         action.process();
     }
 
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }
 
-    /*
+    /**
      * リクエストパラメータの値から該当するActionクラスのインスタンスを作成し、返却する
      * (例:パラメータが action=Employee の場合、actions.EmployeeActionオブジェクト)
      * @param request リクエスト
      * @param response レスポンス
      * @return
      */
-
     @SuppressWarnings({ "rawtypes", "unchecked" }) // コンパイラ警告を抑制
     private ActionBase getAction(HttpServletRequest request, HttpServletResponse response) {
         Class type = null;
